@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon -e js,gql index.js"
+    "start-dev": "./node_modules/.bin/nodemon -e js,gql index.js",
+    "start": "./node_modules/.bin/pm2 start --no-daemon ecosystem.config.js"
   },
   "author": "",
   "license": "ISC",
