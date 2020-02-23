@@ -25,10 +25,11 @@ module.exports = class UserRepository {
   }
 
   remove (id) {
+    const data = { deleted: true, deletedAt: new Date() }
     return this.userModel.findOneAndUpdate(
       { _id: Types.ObjectId(id) },
-      { deleted: true }
-    )
+      data
+    ).then(() => true)
   }
 
   findOneById (id) {
