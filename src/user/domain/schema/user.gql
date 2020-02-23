@@ -1,0 +1,30 @@
+type User {
+  _id: ID
+  email: String!
+  name: String
+  createdAt: Date
+  deleted: Boolean
+  deletedAt: Date
+  updatedAt: Date
+}
+
+type Query {
+  GetUsers: [User]
+  GetUser(id: ID): User
+}
+
+input UserInput {
+  id: ID
+  data: UserDataInput
+}
+
+input UserDataInput {
+  email: String
+  name: String
+  password: String
+}
+
+type Mutation {
+  MergeUser(input: UserInput): User
+  RemoveUser(id: ID): Boolean
+}
