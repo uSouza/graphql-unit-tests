@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+  proxy:
+    container_name: proxy.local.com
+    image: jwilder/nginx-proxy:latest
+    volumes:
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+      - './proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro'
+    ports:
+      - '80:80'
+    restart: unless-stopped
+    networks:
+      main:
+        aliases:
+          - proxy.local.com
+
+  api.local.com:
+    build: ./api
+    command: npm run start-dev
+    container_name: api.local.com
+    depends_on:
+      - mongodb.local.com
+    volumes:
+      - './api:/usr/src/app:rw'
+    ports:
+      - '8080:8080'
+    environment:
+      VIRTUAL_HOST: 'api.local.com'
+      PORT: 8080
+      APP_ENV: 'development'
+      NODE_ENV: 'development'
+      MONGO_URL: 'mongodb://mongodb.local.com:27017'
+      MONGO_DATABASE: 'example'
+      JWT_SECRET: 'your_jwt_secret!'
+    networks:
+      main:
+        aliases:
+          - api.local.com
+
+  mongodb.local.com:
+    image: mongo:latest
+    container_name: mongodb.local.com
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./.data/mongodb:/data/db
+    environment:
+      VIRTUAL_HOST: mongodb.local.com
+    networks:
+      main:
+        aliases:
+          - mongodb.local.com
+
+networks:
+  main:
