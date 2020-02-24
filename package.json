@@ -15,11 +15,13 @@
     "apollo-client": "^2.6.8",
     "apollo-link-http": "^1.5.16",
     "apollo-server": "^2.10.0",
+    "crypto-js": "^4.0.0",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "graphql-tools": "^4.0.6",
-    "pm2": "^4.2.3",
-    "mongoose": "^5.9.2"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.2",
+    "pm2": "^4.2.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

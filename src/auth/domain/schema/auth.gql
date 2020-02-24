@@ -1,0 +1,18 @@
+type Auth {
+  accessToken: String!
+  refreshToken: String!
+}
+
+input SignInInput {
+  email: String!
+  password: String!
+}
+
+input RefreshTokenInput {
+  refreshToken: String!
+}
+
+extend type Query {
+  SignIn(input: SignInInput!): Auth
+  RefreshToken(input: RefreshTokenInput!): Auth
+}

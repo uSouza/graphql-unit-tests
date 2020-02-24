@@ -46,6 +46,20 @@ module.exports = class UserRepository {
     })
   }
 
+  findOneByEmail (email) {
+    return this.userModel.findOne({
+      $and: [
+        { email },
+        {
+          $or: [
+            { deleted: { $exists: false } },
+            { deleted: false },
+          ],
+        },
+      ],
+    })
+  }
+
   findAll (skip, limit) {
     return this.userModel.find({
       $or: [

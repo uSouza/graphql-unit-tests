@@ -1,6 +1,11 @@
-module.exports = async (_, { input }, { userRepository }) => {
+module.exports = async (_, { input }, { userRepository, cryptService }) => {
   if (input.id) {
-    return userRepository.update(input.id , input.data)
+    return userRepository.update(input.id, input.data)
   }
-  return userRepository.create(input.data)
+  const { password } = input.data
+  const data = {
+    ...input.data,
+    password: cryptService.encrypt(password)
+  }
+  return userRepository.create(data)
 }
