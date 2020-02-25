@@ -5,25 +5,22 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "./node_modules/.bin/nodemon -e js,gql index.js",
-    "start": "./node_modules/.bin/pm2 start --no-daemon ecosystem.config.js"
+    "start": "./node_modules/.bin/pm2 start --no-daemon ecosystem.config.js",
+    "test": "./node_modules/.bin/jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-boost": "^0.4.7",
-    "apollo-cache-inmemory": "^1.6.5",
-    "apollo-client": "^2.6.8",
-    "apollo-link-http": "^1.5.16",
     "apollo-server": "^2.10.0",
     "crypto-js": "^4.0.0",
     "graphql": "^14.6.0",
-    "graphql-tag": "^2.10.3",
     "graphql-tools": "^4.0.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.2",
     "pm2": "^4.2.3"
   },
   "devDependencies": {
+    "jest": "^25.1.0",
     "nodemon": "^2.0.2"
   }
 }
