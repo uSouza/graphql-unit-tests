@@ -17,7 +17,7 @@ services:
 
   api.local.com:
     build: .
-    command: npm run start-dev
+    command: bash -c "npm install && npm start"
     container_name: api.local.com
     depends_on:
       - mongodb.local.com
@@ -45,7 +45,7 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - ../.data/mongodb:/data/db
+      - .data/mongodb:/data/db
     environment:
       VIRTUAL_HOST: mongodb.local.com
     networks:
