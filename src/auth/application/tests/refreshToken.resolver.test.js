@@ -2,7 +2,7 @@ const { ApolloError } = require('apollo-server')
 
 const RefreshToken = require('../refreshToken.resolver')
 
-describe('Attempt to signIn', () => {
+describe('Attempt to refreshToken', () => {
   it('Should throw an Apollo Error when refresh token is invalid', async () => {
     const expectedError = new ApolloError('Invalid refresh token', 'invalid_refresh_token')
 
