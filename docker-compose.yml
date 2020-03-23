@@ -17,7 +17,7 @@ services:
 
   api.local.com:
     build: .
-    command: bash -c "npm install && npm start"
+    command: bash -c "npm install && npm run start-dev"
     container_name: api.local.com
     depends_on:
       - mongodb.local.com
