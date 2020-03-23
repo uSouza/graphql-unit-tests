@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const SignIn = require('./signIn.resolver')
 const RefreshToken = require('./refreshToken.resolver')
 
