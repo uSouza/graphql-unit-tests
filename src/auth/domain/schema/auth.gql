@@ -12,7 +12,7 @@ input RefreshTokenInput {
   refreshToken: String!
 }
 
-extend type Query {
+extend type Mutation {
   SignIn(input: SignInInput!): Auth
   RefreshToken(input: RefreshTokenInput!): Auth
 }

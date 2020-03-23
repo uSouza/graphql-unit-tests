@@ -1,4 +1,5 @@
-module.exports = async (_, { input }, { userRepository, cryptService }) => {
+module.exports = async (_, { input }, { userRepository, cryptService, authService, user }) => {
+  authService(user)
   if (input.id) {
     return userRepository.update(input.id, input.data)
   }
