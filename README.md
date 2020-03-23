@@ -9,15 +9,19 @@ This application can be executed with [docker](https://www.docker.com).
 In the root directory of application, execute:
 
 ```bash
-docker-compose up
+npm install
 ```
-Add this lines in your etc/hosts file
+Add this lines bellow in your etc/hosts file
 ```bash
 127.0.0.1	api.local.com
 127.0.0.1	mongodb.local.com
 ```
 After this steps, your application must be available in  api.local.com
 ## Usage
+Run the application containers with command bellow:
+```bash
+docker-compose up
+```
 Run the unit tests with command:
 ```bash
 npm run test
