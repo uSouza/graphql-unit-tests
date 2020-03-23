@@ -15,7 +15,7 @@ type Query {
 
 input UserInput {
   id: ID
-  data: UserDataInput
+  data: UserDataInput!
 }
 
 input UserDataInput {

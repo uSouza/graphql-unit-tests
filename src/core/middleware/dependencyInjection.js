@@ -5,6 +5,7 @@ const jwtService = require('../service/jwtService')
 const authService = require('../service/authService')
 
 module.exports = () => ({
+  userModel: user,
   userRepository: new userRepository(user),
   cryptService,
   jwtService,
