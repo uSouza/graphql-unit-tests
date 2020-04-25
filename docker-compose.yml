@@ -25,14 +25,8 @@ services:
       - './:/usr/src/app:rw'
     ports:
       - '8080:8080'
-    environment:
-      VIRTUAL_HOST: 'api.local.com'
-      PORT: 8080
-      APP_ENV: 'development'
-      NODE_ENV: 'development'
-      MONGO_URL: 'mongodb://mongodb.local.com:27017'
-      MONGO_DATABASE: 'example'
-      JWT_SECRET: 'your_jwt_secret!'
+    env_file:
+      - .env
     networks:
       main:
         aliases:
