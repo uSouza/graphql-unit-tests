@@ -9,20 +9,6 @@ const userModel = require('../../domain/model/user.model')
 const userRepository = {}
 
 describe('Attempt to merge an user', () => {
-  it('Should throw an Apollo Error when authUser is invalid', async () => {
-    const expectedError = new ApolloError('Unauthorized user to resource', 'unauthorized')
-    const ctx = {
-      userRepository,
-      authService: jest.fn().mockImplementation(() => { throw expectedError }),
-      user: { _id: '5e57cd5831f6ae05d4cffaa7' }
-    }
-    try {
-      await MergeUser(null, { input: null }, ctx)
-    } catch (error) {
-      expect(error).toEqual(expectedError)
-    }
-  })
-
   it('Should throw errors when model is not valid', async () => {
     userModel.hydrate.mockImplementation(() => {
       return {

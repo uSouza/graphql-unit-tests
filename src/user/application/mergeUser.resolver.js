@@ -1,8 +1,6 @@
 const { ApolloError } = require('apollo-server')
 
-module.exports = async (_, { input }, { userRepository, cryptService, authService, user, userModel }) => {
-  authService(user)
-
+module.exports = async (_, { input }, { userRepository, cryptService, userModel }) => {
   const errors = (userModel.hydrate(input.data)).validateSync()
   if (errors) throw new ApolloError(JSON.stringify(errors.errors), 'validation_errors')
 

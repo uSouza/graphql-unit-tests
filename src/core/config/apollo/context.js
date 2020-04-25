@@ -4,8 +4,8 @@ const dependencyInjection = require('../../middleware/dependencyInjection')
 
 module.exports = async (req) => {
   try {
+    const token = req && req.headers && req.headers.authorization
     const ctx = await dependencyInjection()
-    const token = req.headers && req.headers.authorization
     const jwtDecoded = token && token !== 'null' && await ctx.jwtService.verify(token)
     if (jwtDecoded && jwtDecoded.userId) {
       const user = await ctx.userRepository.findOneById(jwtDecoded.userId)
