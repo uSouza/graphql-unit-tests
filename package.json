@@ -19,7 +19,7 @@
     "graphql-tools": "^4.0.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.2",
-    "pm2": "^4.2.3"
+    "pm2": "^5.2.0"
   },
   "devDependencies": {
     "jest": "^25.1.0",
