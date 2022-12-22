@@ -17,7 +17,7 @@
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "graphql-tools": "^4.0.6",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.9.2",
     "pm2": "^4.2.3"
   },
